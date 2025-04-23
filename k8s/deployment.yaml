@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hw2-deployment
-  labels:
-    app: hw2-app
 spec:
   replicas: 2
   selector:
@@ -16,9 +14,9 @@ spec:
     spec:
       containers:
       - name: hw2-container
-        image: username/k8s-hw2-service:v1
+        image: mokarski/k8s-hw2-service:v1  # Полный путь к образу
         ports:
-        - containerPort: 8000
+        - containerPort: 8000  # По заданию
         livenessProbe:
           httpGet:
             path: /health/
